@@ -1,7 +1,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/bagy3769/public_html/nft-frontend
-    - cd $DEPLOYPATH
+    - cd ~/nft-frontend
     - npm install
     - npm run build
-    - npm run start
+    - rm -rf $DEPLOYPATH/*
+    - cp -r out/* $DEPLOYPATH/
