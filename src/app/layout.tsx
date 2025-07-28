@@ -10,7 +10,7 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   title: "Pasher Beary",
-  description: "his is Phaser Beary – your new favorite digital slacker.",
+  description: "This is Phaser Beary – your new favorite digital slacker.",
 };
 
 export default function RootLayout({
