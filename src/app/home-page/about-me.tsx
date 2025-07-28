@@ -10,9 +10,6 @@ export default function AboutMe() {
                     <p className="text-lg text-white mb-4 text-justify">
                         The laziest bear to ever accidentally mint himself into the XRP blockchain. He’s not your average pixel-pumped NFT character. Nope. He’s unbothered, unimpressed, and perpetually halfway between a nap and existential dread. Born from pure indifference and running on low energy (literally and emotionally), Phaser Beary doesn’t chase hype – hype chases him and gives up halfway. With his half-lidded stare and resting “meh” face, this bear is a satirical middle paw to all the try-hard NFT projects flooding your feed.
                     </p>
-                    {/* <p className="text-lg text-white">
-                        Join the rebellion against productivity. Own a bear who’s proud of doing nothing. This is Phaser Beary – your new favorite digital slacker.
-                    </p> */}
                 </div>
                 <div className="md:w-1/2 w-full flex justify-center">
                     <Image
