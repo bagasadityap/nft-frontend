@@ -3,23 +3,22 @@ import { FaDiscord } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="text-white py-6">
-        <hr className="mb-5"/>
+    <footer className="text-white py-4">
         <div className="mx-auto max-w-8xl px-8 sm:px-10 lg:px-12">
             <div className="flex justify-between items-center">
-            <p className="text-md">
-                &copy; {new Date().getFullYear()} Monkeyz. All rights reserved.
+            <p className="text-md text-white">
+                &copy; {new Date().getFullYear()} Pasher Beary. All rights reserved.
             </p>
             <div className="space-x-4">
                 <button
                     type="button"
-                    className="rounded-full p-1 text-gray-400 hover:text-white focus:outline-none">
+                    className="rounded-full p-1 text-gray-400 hover:text-white">
                     <span className="sr-only">X</span>
                     <FaXTwitter className="h-9 w-9" aria-hidden="true" />
                 </button>
                 <button
                     type="button"
-                    className="ml-3 rounded-full p-1 text-gray-400 hover:text-white focus:outline-none">
+                    className="ml-3 rounded-full p-1 text-gray-400 hover:text-white">
                     <span className="sr-only">Join Discord</span>
                     <FaDiscord className="h-10 w-10" />
                 </button>

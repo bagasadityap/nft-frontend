@@ -13,15 +13,17 @@ export default function LandingPage() {
       <div
         className="relative text-white"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,1)), url('/assets/images/background-new.png')`,
+          backgroundImage:`url('/assets/beary/IMG_5246.PNG')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "100vh",
+          minHeight: "100dvh",
+          transition: "background-size 0.3s ease",
         }}
       >
         <div
           className="absolute inset-0"
-          style={{background: "rgba(0,0,0,0.3)",zIndex: 1,}}/>
+          style={{ background: "rgba(0,0,0,0.3)", zIndex: 1 }}
+        />
         <div className="relative z-10">
           <Navbar />
           <Main />
@@ -29,8 +31,33 @@ export default function LandingPage() {
       </div>
       
       <Slider />
-      <AboutMe />
-      <Footer />
+      <div
+        style={{
+          backgroundImage: `url('/assets/beary/IMG_5245.PNG')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100dvh",
+          transition: "background-size 0.3s ease",
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+        position: "absolute",
+        inset: 0,
+        background: "rgba(0,0,0,0.4)",
+        zIndex: 1,
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 2 }}>
+          <AboutMe />
+        </div>
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <Footer />
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,14 +1,12 @@
+import Image from "next/image";
+
 export default function Slider() {
   const images = [
-    "/assets/collections/1.jpg",
-    "/assets/collections/2.jpg",
-    "/assets/collections/3.jpg",
-    "/assets/collections/4.jpg",
-    "/assets/collections/5.jpg",
-    "/assets/collections/6.jpg",
-    "/assets/collections/7.jpg",
+    "/assets/beary/IMG_5248.PNG",
+    "/assets/beary/IMG_5249.PNG",
+    "/assets/beary/IMG_5250.PNG",
+    "/assets/beary/IMG_5251.PNG",
   ];
-
   const sliderImages = [...images, ...images, ...images];
 
   return (
@@ -49,10 +47,13 @@ export default function Slider() {
       <div className="slider-track">
         {sliderImages.map((src, index) => (
           <div key={index} className="slider-item">
-            <img
+            <Image
               src={src}
               alt={`slider-${index}`}
               loading="eager"
+              width={150}
+              height={150}
+              className="rounded-lg"
             />
           </div>
         ))}
