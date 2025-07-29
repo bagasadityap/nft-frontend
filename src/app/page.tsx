@@ -26,7 +26,7 @@ export default function LandingPage() {
       <div
         className="relative text-white"
         style={{
-          backgroundImage:`url('/assets/beary/bear.PNG')`,
+          backgroundImage:`url('/assets/beary/Bear.PNG')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: "100dvh",
