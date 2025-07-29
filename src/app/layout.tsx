@@ -9,7 +9,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Pasher Beary",
+  title: "Phaser Beary",
   description: "This is Phaser Beary – your new favorite digital slacker.",
 };
 

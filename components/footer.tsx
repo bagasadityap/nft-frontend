@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="mx-auto max-w-8xl px-8 sm:px-10 lg:px-12">
             <div className="flex justify-between items-center">
             <p className="text-md text-white">
-                &copy; {new Date().getFullYear()} Pasher Beary. All rights reserved.
+                &copy; {new Date().getFullYear()} Phaser Beary. All rights reserved.
             </p>
             <div className="space-x-4">
                 <button

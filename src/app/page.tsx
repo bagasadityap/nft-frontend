@@ -2,12 +2,25 @@
 
 import Navbar from "../../components/navbar-public";
 import Footer from "../../components/footer";
+import LoadingSpinner from "../../components/spinner";
 import Main from "./home-page/main";
 import Slider from "./home-page/slider";
 import AboutMe from "./home-page/about-me";
-import React from "react";
+import React, {useEffect} from "react";
 
 export default function LandingPage() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, []);
+
   return (
     <div className="bg-black text-white">
       <div
@@ -25,7 +38,7 @@ export default function LandingPage() {
           style={{ background: "rgba(0,0,0,0.3)", zIndex: 1 }}
         />
         <div className="relative z-10">
-          <Navbar />
+          <Navbar className="bg-black/50"/>
           <Main />
         </div>
       </div>
@@ -51,9 +64,9 @@ export default function LandingPage() {
         zIndex: 1,
           }}
         />
-        <div style={{ position: "relative", zIndex: 2 }}>
+        <section id="about" style={{ position: "relative", zIndex: 2 }}>
           <AboutMe />
-        </div>
+        </section>
         <div style={{ position: "relative", zIndex: 1 }}>
           <Footer />
         </div>

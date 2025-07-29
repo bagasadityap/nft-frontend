@@ -4,27 +4,38 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaDiscord } from 'react-icons/fa'
-import React from 'react'
+import React, {useCallback} from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navigation = [
-  { name: 'About', href: '#' },
-  { name: 'Meme Generator', href: '/meme-generator' },
-  { name: 'Collection', href: '#' },
+  { name: 'ABOUT', href: '#about' },
+  { name: 'GENERATOR', href: '/meme-generator' },
+  { name: 'COLLECTIONS', href: '#' },
   { name: 'FAQ', href: '#' },
 ]
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function Navbar() {
+export default function Navbar({ className = "" }) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (pathname === '/') {
+        const el = document.querySelector(href);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        router.push(`/${href}`);
+      }
+    }
+  }, [pathname, router]);
 
   return (
-    <Disclosure as="nav" className="bg-black/30 sm:py-2 lg:py-5">
+    <Disclosure as="nav" className={`sm:py-2 lg:py-5 ${className}`}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-10">
@@ -53,7 +64,6 @@ export default function Navbar() {
                       <div className="w-full max-w-xs mx-auto space-y-4">
                         {navigation.map((item) => {
                             const isActive = pathname === item.href;
-
                             return (
                               <Link
                                 key={item.name}
@@ -76,33 +86,48 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-between sm:items-stretch sm:justify-betwee">
               <div className="hidden sm:flex flex-shrink-0 items-center">
                 <Link href="/" className="block">
-                <Image
-                  src="/assets/beary/IMG_5254.GIF"
-                  alt="This is Beary"
-                  width={240}
-                  height={320}
-                  className="w-24 h-auto sm:w-32 md:w-40 lg:w-52 max-w-full"
-                />
+                  <Image
+                    src="/assets/beary/IMG_5254.GIF"
+                    alt="This is Beary"
+                    width={240}
+                    height={320}
+                    className="w-24 h-auto sm:w-32 md:w-40 lg:w-52 max-w-full"
+                  />
                 </Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex items-center">
-                <div className="flex space-x-4">
+                <div className="flex">
                 {navigation.map((item) => {
-                    const isActive = pathname === item.href;
+                  const isActive = pathname === item.href;
 
-                    return (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className={`block rounded-md px-6 py-4 font-bold text-center ${
-                          isActive
-                            ? "text-white text-2xl"
-                            : "text-gray-300 hover:text-white text-xl"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    );
+                  const isAnchorLink = item.href.startsWith('#');
+
+                  return isAnchorLink ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={`block rounded-md px-6 py-4 font-bold text-center ${
+                        isActive
+                          ? "text-white text-2xl"
+                          : "text-gray-300 hover:text-white text-xl"
+                      }`}
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`block rounded-md px-6 py-4 font-bold text-center ${
+                        isActive
+                          ? "text-white text-2xl"
+                          : "text-gray-300 hover:text-white text-xl"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  );
                 })}
                 </div>
               </div>
@@ -110,10 +135,10 @@ export default function Navbar() {
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <button
-                type="button"
-                className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
-                <span className="sr-only">X</span>
-                <FaXTwitter className="h-9 w-9" aria-hidden="true" />
+                  type="button"
+                  className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
+                  <span className="sr-only">X</span>
+                  <FaXTwitter className="h-9 w-9" aria-hidden="true" />
               </button>
               <button
                 type="button"

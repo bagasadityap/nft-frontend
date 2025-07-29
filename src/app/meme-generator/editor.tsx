@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import Draggable from "react-draggable";
 import Image from "next/image";
 import html2canvas from "html2canvas";
+import { Download } from "lucide-react";
 
 export default function ImageEditor() {
   const [baseImage, setBaseImage] = useState<string | null>(null);
@@ -32,7 +33,7 @@ export default function ImageEditor() {
     if (!editor) return;
     const canvas = await html2canvas(editor, { backgroundColor: null });
     const link = document.createElement("a");
-    link.download = "pasher_beary_meme_generated.png";
+    link.download = "phaser_beary_meme_generated.png";
     link.href = canvas.toDataURL();
     link.click();
   };
@@ -40,48 +41,61 @@ export default function ImageEditor() {
   return (
     <div>
         <div className="flex flex-row gap-x-4 items-center justify-center p-4">
-            <select
-                value={baseImage ?? ""}
-                onChange={(e) => setBaseImage(e.target.value)}
-                className="mb-4 text-black border p-2 rounded"
-            >
-                <option value="">Select a base image</option>
-                {base_images.map((img, idx) => (
-                    <option key={idx} value={img}>
-                    {img.split("/").pop()}
-                    </option>
-                ))}
-            </select>
+            <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0 mb-6">
+                <div className="relative">
+                    <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
+                    {baseImage ? baseImage.split("/").pop() : "Base Image"}
+                    </button>
+                    <select
+                    value={baseImage ?? ""}
+                    onChange={(e) => setBaseImage(e.target.value)}
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    >
+                    <option value="">Select a base image</option>
+                    {base_images.map((img, idx) => (
+                        <option key={idx} value={img}>
+                        {img.split("/").pop()}
+                        </option>
+                    ))}
+                    </select>
+                </div>
 
-            <select
-                value={overlayImage ?? ""}
-                onChange={(e) => setOverlayImage(e.target.value)}
-                className="mb-4 text-black border p-2 rounded"
-            >
-                <option value="">Select a sticker</option>
-                {sticker.map((img, idx) => (
-                    <option key={idx} value={img}>
-                    {img.split("/").pop()}
-                    </option>
-                ))}
-            </select>
+                <div className="relative">
+                    <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
+                    {overlayImage ? overlayImage.split("/").pop() : "Sticker"}
+                    </button>
+                    <select
+                    value={overlayImage ?? ""}
+                    onChange={(e) => setOverlayImage(e.target.value)}
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    >
+                    <option value="">Select a sticker</option>
+                    {sticker.map((img, idx) => (
+                        <option key={idx} value={img}>
+                        {img.split("/").pop()}
+                        </option>
+                    ))}
+                    </select>
+                </div>
 
-            <button
-                onClick={handleDownload}
-                className="mb-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
-                Download
-            </button>
+                <button
+                    onClick={handleDownload}
+                    className="text-gray-500 bg-blue-100 rounded-lg p-1 hover:text-black transition-colors"
+                    title="Download image"
+                >
+                    <Download size={30} />
+                </button>
+            </div>
         </div>
 
         <div
             id="editor-capture"
-            className="relative w-full max-w-md aspect-[3/4] border-black border-8 mx-auto overflow-hidden"
-            style={{ background: "#fff" }}
+            className="relative w-full max-w-2xl aspect-[1/1] border-black border-20 mx-auto overflow-hidden"
+            style={{ background: "#43af5eff" }}
         >
             {baseImage && (
             <Image
-                width={900}
+                width={1200}
                 height={1200}
                 src={baseImage}
                 alt="Base"
