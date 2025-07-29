@@ -2,10 +2,10 @@
 
 import Navbar from "../../components/navbar-public";
 import Footer from "../../components/footer";
-import LoadingSpinner from "../../components/spinner";
 import Main from "./home-page/main";
 import Slider from "./home-page/slider";
 import AboutMe from "./home-page/about-me";
+import BalonParallax from "../../components/balon";
 import React, {useEffect} from "react";
 
 export default function LandingPage() {
@@ -26,13 +26,14 @@ export default function LandingPage() {
       <div
         className="relative text-white"
         style={{
-          backgroundImage:`url('/assets/beary/IMG_5246.PNG')`,
+          backgroundImage:`url('/assets/beary/bear.PNG')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           minHeight: "100dvh",
           transition: "background-size 0.3s ease",
         }}
       >
+        <BalonParallax />
         <div
           className="absolute inset-0"
           style={{ background: "rgba(0,0,0,0.3)", zIndex: 1 }}

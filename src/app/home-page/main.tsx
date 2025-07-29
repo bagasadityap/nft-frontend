@@ -9,9 +9,9 @@ export default function Main() {
       <p className="text-xl md:text-2xl text-white text-center mb-8 max-w-2xl">
         Join the rebellion against productivity. Own a bear who’s proud of doing nothing.
       </p>
-      <button className="bg-green-600 hover:bg-green-700 text-white font-bold text-2xl py-3 px-6 rounded-lg transition">
+      <a href="https://xrp.cafe/collection/phaser-beary" className="bg-green-600 hover:bg-green-700 text-white font-bold text-2xl py-3 px-6 rounded-lg transition">
         Get Your Beary
-      </button>
+      </a>
     </main>
   );
 }

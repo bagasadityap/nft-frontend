@@ -12,6 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 const navigation = [
   { name: 'ABOUT', href: '#about' },
   { name: 'GENERATOR', href: '/meme-generator' },
+  { name: '$PHASER COIN', href: '#' },
   { name: 'COLLECTIONS', href: '#' },
   { name: 'FAQ', href: '#' },
 ]
@@ -121,8 +122,8 @@ export default function Navbar({ className = "" }) {
                       href={item.href}
                       className={`block rounded-md px-6 py-4 font-bold text-center ${
                         isActive
-                          ? "text-white text-2xl"
-                          : "text-gray-300 hover:text-white text-xl"
+                          ? "text-white sm:text-md md:text-lg lg:text-2xl"
+                          : "text-gray-300 hover:text-white sm:text-sm md:text-md lg:text-xl"
                       }`}
                     >
                       {item.name}
@@ -134,12 +135,12 @@ export default function Navbar({ className = "" }) {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <button
-                  type="button"
+              <a
+                  href="https://x.com/phaserbeary_xrp?s=21"
                   className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
                   <span className="sr-only">X</span>
                   <FaXTwitter className="h-9 w-9" aria-hidden="true" />
-              </button>
+              </a>
               <button
                 type="button"
                 className="ml-3 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">

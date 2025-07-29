@@ -88,36 +88,38 @@ export default function ImageEditor() {
             </div>
         </div>
 
-        <div
-            id="editor-capture"
-            className="relative w-full max-w-2xl aspect-[1/1] border-black border-20 mx-auto overflow-hidden"
-            style={{ background: "#43af5eff" }}
-        >
-            {baseImage && (
-            <Image
-                width={1200}
-                height={1200}
-                src={baseImage}
-                alt="Base"
-                className="absolute inset-0 w-full h-full object-cover"
-                draggable={false}
-            />
-            )}
-
-            {overlayImage && (
-            <Draggable nodeRef={nodeRef} bounds="parent">
+        <div className="relative w-full max-w-2xl border-black border-20 mx-auto">
+            <div
+                id="editor-capture"
+                className="relative aspect-[1/1] overflow-hidden"
+                style={{ background: "#43af5eff" }}
+            >
+                {baseImage && (
                 <Image
-                width={225}
-                height={300}
-                ref={nodeRef}
-                src={overlayImage}
-                alt="Overlay"
-                className="absolute top-0 left-0 object-contain cursor-move"
-                draggable={false}
-                style={{ pointerEvents: "auto" }}
+                    width={1200}
+                    height={1200}
+                    src={baseImage}
+                    alt="Base"
+                    className="absolute inset-0 w-full h-full object-cover"
+                    draggable={false}
                 />
-            </Draggable>
-            )}
+                )}
+
+                {overlayImage && (
+                <Draggable nodeRef={nodeRef} bounds="parent">
+                    <Image
+                    width={225}
+                    height={300}
+                    ref={nodeRef}
+                    src={overlayImage}
+                    alt="Overlay"
+                    className="absolute top-0 left-0 object-contain cursor-move"
+                    draggable={false}
+                    style={{ pointerEvents: "auto" }}
+                    />
+                </Draggable>
+                )}
+            </div>
         </div>
     </div>
   );
