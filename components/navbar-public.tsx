@@ -39,7 +39,7 @@ export default function Navbar({ className = "" }) {
     <Disclosure as="nav" className={`sm:py-2 lg:py-5 ${className}`}>
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-8xl px-6 sm:px-8 lg:px-10">
+          <div className="font-gloria mx-auto max-w-8xl px-6 sm:px-8 lg:px-10">
             <div className="relative flex h-16 items-center justify-between">
               {/* Mobile button */}
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">

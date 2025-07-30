@@ -17,10 +17,16 @@ export default function PhaserCoin() {
         <Navbar className="bg-black/50 relative z-10" />
         <div className="text-gray-800 flex flex-col items-center justify-center px-6 py-10 text-center">
             <div className="bg-black/80 p-20 rounded-lg shadow-lg text-white">
-                <div className="flex flex-row items-center justify-center mb-15">
-                    <h1 className="text-5xl text-yellow-500 font-bold mr-3">Coming Soon!!!</h1>
+                <div className="flex flex-row items-center justify-center mb-10">
+                    <Image
+                        width={600}
+                        height={100}
+                        src="/assets/beary/phaser.gif"
+                        alt="Phaser"
+                    >
+                    </Image>
                 </div>
-                <div className="flex flex-col md:flex-row items-center justify-between">
+                <div className="font-andika flex flex-col md:flex-row items-center justify-between">
                     <p className="text-xl text-justify md:w-[68%]">
                         The official meme token of $Phaser Beary, the internet’s most gloriously unmotivated bear. Accidentally minted into the XRP Ledger during what was probably a nap, this bear didn’t set out to make a token… but here it is. Why? Because effort is overrated and utility is a scam (probably).
                         <br /><br />
@@ -38,11 +44,13 @@ export default function PhaserCoin() {
                     >
                     </Image>
                 </div>
-                <p className="text-xl font-bold mt-6">
+                <p className="font-gloria font-bold text-xl mt-6">
                     Why buy $Phaser?<br />
                     No promises. No pressure.<br />
                     No work. No worries.<br />
                     Just vibes and a bear who peaked in apathy.<br /><br />
+                </p>
+                <p className="font-gloria font-bold text-xl">
                     Own a piece of the rebellion against forced productivity. Embrace the bear who’s too lazy to care and too iconic to ignore.Sorry, the page you are looking for does not exist.
                 </p>
             </div>

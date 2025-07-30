@@ -4,8 +4,8 @@ import { FaDiscord } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="">
-        <div className="w-full max-w-screen-xl mx-auto p-4">
+    <footer>
+        <div className="font-gloria w-full max-w-screen-xl mx-auto p-4">
             <div className="sm:flex sm:items-center justify-center md:justify-between">
                 <a className="hidden md:block flex items-center sm:mb-0">
                     <Image 
@@ -36,7 +36,7 @@ export default function Footer() {
                 </ul>
             </div>
             <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700" />
-            <span className="block text-sm text-white sm:text-center">&copy; {new Date().getFullYear()} Made with ❤️ by $Phaser Beary.</span>
+            <span className="block text-sm md:text-md lg:text-lg text-white sm:text-center">&copy; {new Date().getFullYear()} Made with 🐻🪙 by $Phaser Beary.</span>
         </div>
     </footer>
   );

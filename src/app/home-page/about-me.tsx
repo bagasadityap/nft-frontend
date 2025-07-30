@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function AboutMe() {
   return (
-    <div className="about-me h-100vh flex flex-col items-center justify-center my-15">
+    <div className="font-andika about-me h-100vh flex flex-col items-center justify-center my-15">
         <div className="bg-black/50 rounded-lg px-8 py-10">
             <div className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-5xl mx-auto">
                 <div className="md:w-1/2 w-full text-center md:text-left">
-                    <h2 className="text-3xl font-bold mb-4">Meet the Phaser Beary</h2>
+                    <h2 className="font-gloria text-3xl font-bold mb-4">Meet the Phaser Beary</h2>
                     <p className="text-lg text-white mb-4 text-justify">
                         The laziest bear to ever accidentally mint himself into the XRP blockchain. He’s not your average pixel-pumped NFT character. Nope. He’s unbothered, unimpressed, and perpetually halfway between a nap and existential dread. Born from pure indifference and running on low energy (literally and emotionally), Phaser Beary doesn’t chase hype – hype chases him and gives up halfway. With his half-lidded stare and resting “meh” face, this bear is a satirical middle paw to all the try-hard NFT projects flooding your feed.
                     </p>

@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function NotFound() {
   return (
     <div
-        className="min-h-screen h-100vh bg-black text-gray-800 flex flex-col items-center justify-center p-6 text-center"
+        className="font-gloria min-h-screen h-100vh bg-black text-gray-800 flex flex-col items-center justify-center p-6 text-center"
         style={
             {
                 backgroundImage: `url('/assets/beary/IMG_5244.PNG')`,
@@ -20,11 +20,11 @@ export default function NotFound() {
                 OOOPS! <br />
                 PAGE NOT FOUND
             </p>
-            <p className="text-2xl mb-20">
-                Sorry, the page you are looking for does not exist.
+            <p className="font-gloria font-bold text-black hover:text-red-500 text-2xl mb-20">
+                OH NOOO...!!! You killed the Bear...
             </p>
-            <Link href="/" className="text-white bg-green-600 p-3 text-xl font-bold hover:bg-green-700 rounded-lg">
-                Back to Home
+            <Link href="/" className="font-andika text-white bg-green-600 p-3 text-xl font-bold hover:bg-green-700 rounded-lg">
+                Bring Beary Back
             </Link>
         </div>
     </div>
