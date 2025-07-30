@@ -12,7 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 const navigation = [
   { name: 'ABOUT', href: '#about' },
   { name: 'GENERATOR', href: '/meme-generator' },
-  { name: '$PHASER COIN', href: '#' },
+  { name: '$PHASER COIN', href: '/$phaser-coin' },
   { name: 'COLLECTIONS', href: '#' },
   { name: 'FAQ', href: '#' },
 ]
@@ -141,12 +141,12 @@ export default function Navbar({ className = "" }) {
                   <span className="sr-only">X</span>
                   <FaXTwitter className="h-9 w-9" aria-hidden="true" />
               </a>
-              <button
-                type="button"
+              <a
+                href="https://discord.gg/2GqcCEFPNu"
                 className="ml-3 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
                 <span className="sr-only">Join Discord</span>
                 <FaDiscord className="h-10 w-10" />
-              </button>
+              </a>
               </div>
             </div>
           </div>

@@ -1,29 +1,42 @@
+import Image from 'next/image'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaDiscord } from 'react-icons/fa'
 
 export default function Footer() {
   return (
-    <footer className="text-white py-4">
-        <div className="mx-auto max-w-8xl px-8 sm:px-10 lg:px-12">
-            <div className="flex justify-between items-center">
-            <p className="text-md text-white">
-                &copy; {new Date().getFullYear()} Phaser Beary. All rights reserved.
-            </p>
-            <div className="space-x-4">
-                <button
-                    type="button"
-                    className="rounded-full p-1 text-gray-400 hover:text-white">
-                    <span className="sr-only">X</span>
-                    <FaXTwitter className="h-9 w-9" aria-hidden="true" />
-                </button>
-                <button
-                    type="button"
-                    className="ml-3 rounded-full p-1 text-gray-400 hover:text-white">
-                    <span className="sr-only">Join Discord</span>
-                    <FaDiscord className="h-10 w-10" />
-                </button>
+    <footer className="">
+        <div className="w-full max-w-screen-xl mx-auto p-4">
+            <div className="sm:flex sm:items-center justify-center md:justify-between">
+                <a className="hidden md:block flex items-center sm:mb-0">
+                    <Image 
+                        width={32}
+                        height={32}
+                        src="/assets/beary/IMG_5247.PNG"
+                        className="w-42 h-auto"
+                        alt="Logo"
+                    />
+                </a>
+                <ul className="flex items-center w-full justify-center md:justify-end gap-6 text-sm font-medium">
+                    <li>
+                        <a
+                            href="https://x.com/phaserbeary_xrp?s=21"
+                            className="rounded-full text-gray-300 hover:text-white focus:outline-none">
+                            <span className="sr-only">X</span>
+                            <FaXTwitter className="w-12 h-auto" aria-hidden="true" />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://discord.gg/2GqcCEFPNu"
+                            className="rounded-full text-gray-300 hover:text-white focus:outline-none">
+                            <span className="sr-only">Join Discord</span>
+                            <FaDiscord className="w-13 h-auto" />
+                        </a>
+                    </li>
+                </ul>
             </div>
-            </div>
+            <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700" />
+            <span className="block text-sm text-white sm:text-center">&copy; {new Date().getFullYear()} Made with ❤️ by $Phaser Beary.</span>
         </div>
     </footer>
   );

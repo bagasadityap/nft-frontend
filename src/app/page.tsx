@@ -68,6 +68,9 @@ export default function LandingPage() {
         <section id="about" style={{ position: "relative", zIndex: 2 }}>
           <AboutMe />
         </section>
+        {/* <section id="roadmap" style={{ position: "relative", zIndex: 2 }}>
+          <Roadmap />
+        </section> */}
         <div style={{ position: "relative", zIndex: 1 }}>
           <Footer />
         </div>
