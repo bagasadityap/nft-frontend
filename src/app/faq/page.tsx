@@ -26,10 +26,10 @@ export default function Main() {
         >
             <Navbar className="bg-black/50 relative z-10" />
                 <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16">
-                    <h1 className="font-gloria font-bold text-9xl text-black text-center">
+                    <h1 className="font-gloria font-bold text-5xl md:text-9xl text-black text-center">
                         ???
                     </h1>
-                    <h1 className="font-gloria font-bold text-8xl text-black text-center">
+                    <h1 className="font-gloria font-bold text-5xl md:text-8xl text-black text-center">
                         Questions Nobody Should Have Asked
                     </h1>
                 </div>

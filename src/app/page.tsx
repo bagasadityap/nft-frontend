@@ -2,9 +2,9 @@
 
 import Navbar from "../../components/navbar-public";
 import Footer from "../../components/footer";
-import Main from "./home-page/main";
+import Main from "../../components/main";
 import Slider from "../../components/slider";
-import AboutMe from "./home-page/about-me";
+import AboutMe from "../../components/about-me";
 import BalonParallax from "../../components/balon";
 import React, {useEffect} from "react";
 

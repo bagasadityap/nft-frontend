@@ -17,6 +17,15 @@ const navigation = [
   { name: 'FAQ', href: '/faq' },
 ]
 
+const navigationMobile = [
+  { name: 'HOME', href: '/' },
+  { name: 'ABOUT', href: '#about' },
+  { name: 'GENERATOR', href: '/meme-generator' },
+  { name: '$PHASER COIN', href: '/$phaser-coin' },
+  { name: 'COLLECTIONS', href: '/collections' },
+  { name: 'FAQ', href: '/faq' },
+]
+
 export default function Navbar({ className = "" }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -42,7 +51,7 @@ export default function Navbar({ className = "" }) {
           <div className="font-gloria mx-auto max-w-8xl px-6 sm:px-8 lg:px-10">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -54,27 +63,31 @@ export default function Navbar({ className = "" }) {
 
               <Disclosure.Panel className="fixed inset-0 z-50 bg-black bg-opacity-80 flex flex-col items-center justify-start pt-24">
                 <Disclosure.Button
-                  className="absolute top-6 right-6 text-gray-300 hover:text-white focus:outline-none"
+                  className="absolute top-6 right-6 text-gray-300"
                   aria-label="Close menu"
                 >
                   <XMarkIcon className="h-8 w-8" />
                 </Disclosure.Button>
 
                 <div className="w-full max-w-xs mx-auto space-y-4">
-                  {navigation.map((item) => {
-                    const isActive = pathname === item.href;
+                  {navigationMobile.map((item) => {
+                    const isAnchorLink = item.href.startsWith('#');
+                    const isActive = pathname.replace(/\/$/, '') === item.href.replace(/\/$/, '');
                     return (
-                      <Link
+                      <a
                         key={item.name}
                         href={item.href}
+                        onClick={(e) => {
+                          handleNavClick(e, item.href);
+                          const disclosureBtn = document.querySelector('[aria-label="Close menu"]') as HTMLElement;
+                          disclosureBtn?.click();
+                        }}
                         className={`block rounded-md px-6 py-4 text-xl font-bold text-center ${
-                          isActive
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white"
+                          isActive && !isAnchorLink ? "text-white" : "text-gray-400"
                         }`}
                       >
                         {item.name}
-                      </Link>
+                      </a>
                     );
                   })}
                 </div>
@@ -96,8 +109,7 @@ export default function Navbar({ className = "" }) {
                 <div className="hidden sm:ml-6 sm:flex items-center">
                   <div className="flex items-center">
                     {navigation.map((item) => {
-                      const isActive = pathname === item.href;
-
+                      const isActive = pathname.replace(/\/$/, '') === item.href.replace(/\/$/, '');
                       const isAnchorLink = item.href.startsWith('#');
 
                       return isAnchorLink ? (
