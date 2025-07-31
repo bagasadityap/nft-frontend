@@ -3,7 +3,7 @@
 import Navbar from "../../components/navbar-public";
 import Footer from "../../components/footer";
 import Main from "./home-page/main";
-import Slider from "./home-page/slider";
+import Slider from "../../components/slider";
 import AboutMe from "./home-page/about-me";
 import BalonParallax from "../../components/balon";
 import React, {useEffect} from "react";

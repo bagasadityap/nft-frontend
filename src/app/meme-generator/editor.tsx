@@ -7,6 +7,8 @@ import { Download } from "lucide-react";
 export default function ImageEditor() {
   const [baseImage, setBaseImage] = useState<string | null>(null);
   const [overlayImage, setOverlayImage] = useState<string | null>(null);
+  const [showBaseDropdown, setShowBaseDropdown] = useState(false);
+  const [showStcikerDropdown, setShowStickerDropdown] = useState(false);
 
   const nodeRef = useRef<HTMLImageElement>(null);
 
@@ -18,14 +20,16 @@ export default function ImageEditor() {
   ];
   
   const sticker = [
+    "/assets/beary/about.GIF",
+    "/assets/beary/Balon.PNG",
+    "/assets/beary/coin.GIF",
     "/assets/beary/IMG_5247.PNG",
     "/assets/beary/IMG_5248.PNG",
     "/assets/beary/IMG_5249.PNG",
     "/assets/beary/IMG_5250.PNG",
     "/assets/beary/IMG_5251.PNG",
-    "/assets/beary/IMG_5252.PNG",
-    "/assets/beary/IMG_5253.PNG",
-    "/assets/beary/IMG_5254.PNG",
+    "/assets/beary/IMG_5253.GIF",
+    "/assets/beary/IMG_5254.GIF",
   ];
 
   const handleDownload = async () => {
@@ -41,43 +45,71 @@ export default function ImageEditor() {
   return (
     <div>
         <div className="flex flex-row gap-x-4 items-center justify-center p-4">
-            <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0 mb-6">
+            <div className="flex flex-row md:flex-row md:items-center gap-4 mb-6">
                 <div className="relative">
-                    <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
-                    {baseImage ? baseImage.split("/").pop() : "Base Image"}
-                    </button>
-                    <select
-                    value={baseImage ?? ""}
-                    onChange={(e) => setBaseImage(e.target.value)}
-                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    <button
+                        onClick={() => setShowBaseDropdown((prev) => !prev)}
+                        className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow text-center"
                     >
-                    <option value="">Select a base image</option>
-                    {base_images.map((img, idx) => (
-                        <option key={idx} value={img}>
-                        {img.split("/").pop()}
-                        </option>
-                    ))}
-                    </select>
+                        Base Image
+                    </button>
+
+                    {showBaseDropdown && (
+                    <div className="absolute z-50 mt-1 w-full bg-white border rounded shadow max-h-72 overflow-y-auto p-2" style={{ width: "10rem" }}>
+                        <div className="grid grid-cols-2 gap-2">
+                        {base_images.map((img, idx) => (
+                            <div
+                            key={idx}
+                            onClick={() => {
+                                setBaseImage(img);
+                                setShowBaseDropdown(false);
+                            }}
+                            className="cursor-pointer hover:scale-105 transition-transform duration-150"
+                            >
+                            <img
+                                src={img}
+                                alt={`Base ${idx}`}
+                                className="w-full h-24 object-cover rounded border"
+                            />
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+                    )}
                 </div>
 
                 <div className="relative">
-                    <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow">
-                    {overlayImage ? overlayImage.split("/").pop() : "Sticker"}
-                    </button>
-                    <select
-                    value={overlayImage ?? ""}
-                    onChange={(e) => setOverlayImage(e.target.value)}
-                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    <button
+                        onClick={() => setShowStickerDropdown((prev) => !prev)}
+                        className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow text-center"
                     >
-                    <option value="">Select a sticker</option>
-                    {sticker.map((img, idx) => (
-                        <option key={idx} value={img}>
-                        {img.split("/").pop()}
-                        </option>
-                    ))}
-                    </select>
-                </div>
+                        Sticker
+                    </button>
 
+                    {showStcikerDropdown && (
+                    <div className="absolute z-50 mt-1 w-full bg-white border rounded shadow overflow-y-auto p-2" style={{ width: "10rem" }}>
+                        <div className="grid grid-cols-2 gap-2">
+                        {sticker.map((img, idx) => (
+                            <div
+                            key={idx}
+                            onClick={() => {
+                                setOverlayImage(img);
+                                setShowStickerDropdown(false);
+                            }}
+                            className="cursor-pointer hover:scale-105 transition-transform duration-150"
+                            >
+                            <img
+                                src={img}
+                                alt={`Base ${idx}`}
+                                className="w-full h-auto object-cover"
+                            />
+                            </div>
+                        ))}
+                        </div>
+                    </div>
+                    )}
+                </div>
+                
                 <button
                     onClick={handleDownload}
                     className="text-gray-500 bg-blue-100 rounded-lg p-1 hover:text-black transition-colors"
@@ -95,25 +127,24 @@ export default function ImageEditor() {
                 style={{ background: "#43af5eff" }}
             >
                 {baseImage && (
-                <Image
-                    width={1200}
-                    height={1200}
-                    src={baseImage}
-                    alt="Base"
-                    className="absolute inset-0 w-full h-full object-cover"
-                    draggable={false}
+                <div
+                    className="absolute inset-0 w-full h-full"
+                    style={{
+                    backgroundImage: `url(${baseImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    }}
                 />
                 )}
 
                 {overlayImage && (
                 <Draggable nodeRef={nodeRef} bounds="parent">
-                    <Image
-                    width={225}
-                    height={300}
+                    <img
                     ref={nodeRef}
                     src={overlayImage}
                     alt="Overlay"
-                    className="absolute top-0 left-0 object-contain cursor-move"
+                    className="absolute top-0 left-0 w-32 sm:w-42 md:w-52 object-contain cursor-move"
                     draggable={false}
                     style={{ pointerEvents: "auto" }}
                     />
