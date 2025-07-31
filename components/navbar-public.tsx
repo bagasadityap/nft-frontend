@@ -120,7 +120,7 @@ export default function Navbar({ className = "" }) {
                           className={`block rounded-md px-3 py-4 font-bold text-center ${
                             isActive
                               ? "text-white"
-                              : "text-gray-300 hover:text-white sm:text-sm md:text-md lg:text-xl"
+                              : "text-gray-300 hover:text-white"
                           }`}
                         >
                           {item.name}
@@ -132,7 +132,7 @@ export default function Navbar({ className = "" }) {
                           className={`block rounded-md px-6 py-4 font-bold text-center ${
                             isActive
                               ? "text-white"
-                              : "text-gray-300 hover:text-white sm:text-sm md:text-md lg:text-xl"
+                              : "text-gray-300 hover:text-white"
                           }`}
                         >
                           {item.name}
