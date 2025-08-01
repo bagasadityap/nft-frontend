@@ -35,7 +35,7 @@ export default function Footer({color = ""}) {
                     </li>
                     <li>
                         <a
-                            href="https://t.me/+7GEUGZ-1C5s0MmE9"
+                            href="https://t.me/phaserxrp"
                             className={`rounded-full ${color} hover:text-gray-500 focus:outline-none`}>
                             <span className="sr-only">Join Telegram</span>
                             <FaTelegramPlane className="w-13 h-auto" />

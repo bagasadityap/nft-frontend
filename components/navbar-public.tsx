@@ -157,7 +157,7 @@ export default function Navbar({ className = "" }) {
                   <FaDiscord className="h-10 w-10" />
                 </a>
                 <a
-                  href="https://t.me/+7GEUGZ-1C5s0MmE9"
+                  href="https://t.me/phaserxrp"
                   className="ml-2 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
                   <span className="sr-only">Join Telegram</span>
                   <FaTelegramPlane className="h-10 w-10" />
