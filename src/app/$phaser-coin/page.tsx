@@ -17,7 +17,7 @@ export default function PhaserCoin() {
         <Navbar className="bg-black/50 relative z-10" />
         <div className="text-gray-800 flex flex-col items-center justify-center px-6 py-10 text-center">
             <div className="bg-black/80 p-20 rounded-lg shadow-lg text-white">
-                <div className="flex flex-row items-center justify-center mb-10">
+                <div className="flex flex-col items-center justify-center mb-10 gap-5">
                     <Image
                         width={600}
                         height={100}
@@ -25,6 +25,11 @@ export default function PhaserCoin() {
                         alt="Phaser"
                     >
                     </Image>
+                    <a
+                        href="https://firstledger.net/token/rQLfUoZNafhTTJCoCt64isgCcmXdL5a5cp/5048415345520000000000000000000000000000"
+                        className="font-andika text-2xl font-bold bg-green-600 hover:bg-green-700 py-3 px-6 rounded-lg">
+                        Buy Token
+                    </a>
                 </div>
                 <div className="font-andika flex flex-col md:flex-row items-center justify-between">
                     <p className="text-xl text-justify md:w-[68%]">
