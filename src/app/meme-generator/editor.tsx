@@ -120,11 +120,11 @@ export default function ImageEditor() {
             </div>
         </div>
 
-        <div className="relative w-full max-w-2xl border-black border-20 mx-auto">
+        <div className="relative w-full max-w-2xl border-black border-5 md:border-10 mx-auto">
             <div
                 id="editor-capture"
                 className="relative aspect-[1/1] overflow-hidden"
-                style={{ background: "#43af5eff" }}
+                style={{ background: "#b9d24e" }}
             >
                 {baseImage && (
                 <div

@@ -16,7 +16,7 @@ export default function PhaserCoin() {
     >
         <Navbar className="bg-black/50 relative z-10" />
         <div className="text-gray-800 flex flex-col items-center justify-center px-6 py-10 text-center">
-            <div className="bg-black/80 p-20 rounded-lg shadow-lg text-white">
+            <div className="bg-black/80 p-15 md:p-20 rounded-lg shadow-lg text-white">
                 <div className="flex flex-col items-center justify-center mb-10 gap-5">
                     <Image
                         width={600}
@@ -32,7 +32,7 @@ export default function PhaserCoin() {
                     </a>
                 </div>
                 <div className="font-andika flex flex-col md:flex-row items-center justify-between">
-                    <p className="text-xl text-justify md:w-[68%]">
+                    <p className="text-md md:text-xl text-justify md:w-[68%]">
                         The official meme token of $Phaser Beary, the internet’s most gloriously unmotivated bear. Accidentally minted into the XRP Ledger during what was probably a nap, this bear didn’t set out to make a token… but here it is. Why? Because effort is overrated and utility is a scam (probably).
                         <br /><br />
                         $Phaser Beary isn’t here to pump your bags. He’s here to lie down and mildly exist in digital form – somewhere between hibernation and existential dread. He has no roadmap, no use case, and absolutely no interest in being &ldquo;the next big thing.&ldquo; And that’s exactly why he might be.

@@ -68,10 +68,15 @@ export default function LandingPage() {
         <section id="about" style={{ position: "relative", zIndex: 2 }}>
           <AboutMe />
         </section>
-        {/* <section id="roadmap" style={{ position: "relative", zIndex: 2 }}>
-          <Roadmap />
-        </section> */}
         <div style={{ position: "relative", zIndex: 1 }}>
+        {/* <section id="roadmap" className="flex flex-col justify-center items-center" style={{ position: "relative", zIndex: 2 }}>
+          <p className="font-gloria text-5xl font-bold">
+            ROAD MAP
+          </p>
+          <p className="font-gloria text-xl font-bold mb-10">
+            ( click on the circle )
+          </p>
+        </section> */}
           <Footer />
         </div>
       </div>

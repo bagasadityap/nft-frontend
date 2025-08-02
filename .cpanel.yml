@@ -1,4 +1,0 @@
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/bagy3769/public_html/nft-frontend
-    - cd $DEPLOYPATH
