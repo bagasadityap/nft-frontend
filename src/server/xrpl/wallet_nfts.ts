@@ -15,8 +15,9 @@ export async function fetchNFTsByAccount(account: string): Promise<string[]> {
     })
 
     const nfts = response.result.account_nfts || []
+    const issuer = "rM7SKst3xLZNpPmw8LfWtQNBVdRJ2DeFLD";
     for (const nft of nfts) {
-      if (nft.URI) {
+      if (nft.URI && nft.Issuer === issuer ) {
         const decoded = Buffer.from(nft.URI, "hex").toString("utf8")
         uris.push(decoded)
       }

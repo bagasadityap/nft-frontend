@@ -15,8 +15,10 @@ export default function Sidebar({ bg = "" }) {
 
     const handleLogout = () => {
         const confirmLogout = window.confirm("Are you sure you want to logout?");
-        localStorage.removeItem('wallet_address');
-        router.push('/');
+        if (confirmLogout) {
+            localStorage.removeItem('wallet_address');
+            router.push('/');
+        }
     };
 
     const isActive = (path: string) => pathname?.startsWith(path);
@@ -43,9 +45,8 @@ export default function Sidebar({ bg = "" }) {
                             <summary className="flex justify-between items-center cursor-pointer text-2xl font-bold">
                                 <span className="transition-transform group-open:rotate-90 font-bold text-5xl">{'>'}</span>
                             </summary>
-                            <hr className="my-1 border-t-1 border-gray-600" />
-                            <div className="font-gloria text-gray-600 text-xl flex flex-col items-end justify-center gap-3">
-                                <button onClick={handleLogout} className="ms-2 text-red-600 transition-all hover:scale-110 duration-200">Logout</button>
+                            <div className="fixed font-gloria text-gray-600 text-xl flex flex-col items-end gap-5 right-10 mt-5 bg-white/50 p-2 rounded-lg">
+                                <button onClick={handleLogout} className="text-red-600 transition-all hover:scale-110 duration-200">Logout</button>
                                 <Link href="/" className="font-gloria underline font-semibold text-black hover:text-gray-800 hover:scale-105 rounded-lg transition">
                                     {'<'}Back
                                 </Link>

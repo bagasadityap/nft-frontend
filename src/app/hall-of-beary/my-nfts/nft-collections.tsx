@@ -28,7 +28,7 @@ export default function NftCollections() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-linear-65 from-[#8B6EDB] via-[#C0C6FF] to-[#8D73E2] flex flex-col md:flex-row items-center justify-center px-4">
+    <div className="min-h-screen bg-linear-65 from-[#8B6EDB] via-[#C0C6FF] to-[#8D73E2] flex flex-col md:flex-row">
         <div>
           <Sidebar />
         </div>

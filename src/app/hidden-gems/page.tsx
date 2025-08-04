@@ -38,7 +38,7 @@ export default function HiddenGems() {
         </Link>
       </div>
       <div className="font-gloria w-full flex flex-col items-center py-20 px-4">
-        <h1 className="text-8xl font-bold text-yellow-500 text-center mb-10">Hidden Gems</h1>
+        <h1 className="w-screen text-8xl font-bold text-yellow-500 text-center mb-10">Hidden Gems</h1>
         <div className="w-xs md:w-xl flex flex-col items-center justify-center overflow-hidden">
           <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((image, index) => (
@@ -53,10 +53,9 @@ export default function HiddenGems() {
             </div>
         </div>
         
-        <div className="flex flex-col items-center text-yellow-900 p-10">
-            <p className="w-sm md:w-3xl text-center text-2xl font-bold">Phaser Beary celebrates imperfection. This isn’t a broken NFT—it’s an honest one.</p>
-            <p className="w-sm md:w-3xl text-2xl text-justify">
-                <br /><br />
+        <div className="flex flex-col items-center text-yellow-900 p-0 md:p-10">
+            <p className="w-sm px-2 md:w-3xl text-center text-2xl font-bold">Phaser Beary celebrates imperfection. This isn’t a broken NFT—it’s an honest one.</p>
+            <p className="w-sm px-2 md:w-3xl text-2xl text-justify mt-10">
                 While everyone else is busy fixing things, we let ours live just the way they are.
                 Because in laziness, there&apos;s honesty. In mistakes, there&apos;s character.
                 And in system failure... there&apos;s a human touch. Now imagine you end up with one of the “glitched” NFTs from this collection That’s not an accident. That’s luck. Only a few ever fail this perfectly. They’re artifacts of pure, unfiltered laziness and that makes them rare. Phaser Beary doesn’t ask to be understood. Doesn’t want to be fixed. He just wants to nap quietly on the blockchain. And still get paid a lot for it.
