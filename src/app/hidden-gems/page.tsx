@@ -39,7 +39,7 @@ export default function HiddenGems() {
       </div>
       <div className="font-gloria w-full flex flex-col items-center py-20 px-4">
         <h1 className="text-8xl font-bold text-yellow-500 text-center mb-10">Hidden Gems</h1>
-        <div className="w-xl flex flex-col items-center justify-center overflow-hidden">
+        <div className="w-xs md:w-xl flex flex-col items-center justify-center overflow-hidden">
           <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                 {images.map((image, index) => (
                 <div key={index} className="min-w-full p-5 bg-yellow-500/50">
@@ -54,8 +54,8 @@ export default function HiddenGems() {
         </div>
         
         <div className="flex flex-col items-center text-yellow-900 p-10">
-            <p className="w-3xl text-center text-2xl font-bold">Phaser Beary celebrates imperfection. This isn’t a broken NFT—it’s an honest one.</p>
-            <p className="w-3xl text-2xl text-justify">
+            <p className="w-sm md:w-3xl text-center text-2xl font-bold">Phaser Beary celebrates imperfection. This isn’t a broken NFT—it’s an honest one.</p>
+            <p className="w-sm md:w-3xl text-2xl text-justify">
                 <br /><br />
                 While everyone else is busy fixing things, we let ours live just the way they are.
                 Because in laziness, there&apos;s honesty. In mistakes, there&apos;s character.

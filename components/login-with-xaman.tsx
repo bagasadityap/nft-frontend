@@ -99,14 +99,14 @@ export default function LoginWithXaman() {
     }, 3000)
   }
 
-  useEffect(() => {
+  if (typeof window !== 'undefined' && isMobile()) {
     if (!isMobile()) return
     const storedUuid = localStorage.getItem('xumm-uuid')
     if (storedUuid) {
       poll(storedUuid)
       localStorage.removeItem('xumm-uuid')
     }
-  }, [])
+  }
 
   return (
     <div className="min-h-screen bg-[#C4FF74] flex items-center justify-center px-4">

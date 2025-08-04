@@ -2,17 +2,8 @@
 
 import Navbar from "../../../components/navbar-public"
 import Footer from "../../../components/footer"
-import Slider from "../../../components/slider"
-import Image from "next/image"
 
-export default function Main() {
-    const images = [
-    "/assets/beary/IMG_5248.PNG",
-    "/assets/beary/IMG_5249.PNG",
-    "/assets/beary/IMG_5250.PNG",
-    "/assets/beary/IMG_5251.PNG",
-  ];
-
+export default function FAQ() {
     return (
         <div
             className="min-h-screen"

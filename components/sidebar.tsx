@@ -25,7 +25,7 @@ export default function Sidebar({ bg = "" }) {
         <div className="font-gloria w-full md:w-64 md:h-150 flex md:flex-col justify-between px-6 py-5 md:py-20 top-0 left-0">
             <div className={`bg-white/20 text-black p-5 rounded-lg ${bg} w-full md:w-auto`}>
                 <div className="md:hidden flex flex-row items-center justify-between gap-4">
-                    <nav className="flex flex-row gap-4 text-lg items-center">
+                    <nav className="w-full flex flex-row items-between justify-between gap-4 text-xl items-center">
                         {navigation.map((item) => (
                             <Link
                                 key={item.name}
@@ -39,10 +39,18 @@ export default function Sidebar({ bg = "" }) {
                                 {item.name}
                             </Link>
                         ))}
-                        <button onClick={handleLogout} className="ms-2 text-red-600 transition-all hover:scale-110 duration-200">Logout</button>
-                        <Link href="/" className="font-gloria underline font-semibold text-black hover:text-gray-800 text-lg hover:scale-105 rounded-lg transition">
-                            {'<'}Back
-                        </Link>
+                        <details className="group select-none">
+                            <summary className="flex justify-between items-center cursor-pointer text-2xl font-bold">
+                                <span className="transition-transform group-open:rotate-90 font-bold text-5xl">{'>'}</span>
+                            </summary>
+                            <hr className="my-1 border-t-1 border-gray-600" />
+                            <div className="font-gloria text-gray-600 text-xl flex flex-col items-end justify-center gap-3">
+                                <button onClick={handleLogout} className="ms-2 text-red-600 transition-all hover:scale-110 duration-200">Logout</button>
+                                <Link href="/" className="font-gloria underline font-semibold text-black hover:text-gray-800 hover:scale-105 rounded-lg transition">
+                                    {'<'}Back
+                                </Link>
+                            </div>
+                        </details>
                     </nav>
                 </div>
 

@@ -20,14 +20,14 @@ export default function Memes() {
   ]
 
   return (
-    <div className="flex md:flex-row min-h-screen bg-[#C4FF74]">
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#C4FF74]">
       <div>
         <Sidebar />
       </div>
       <div className="font-gloria w-full flex flex-col items-center py-20 px-4">
-        <h1 className="text-9xl font-bold text-center mb-10">Memes</h1>
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-center mb-10">Memes</h1>
         {/* <button className="p-3 bg-black text-white my-3 rounded-lg text-xl">
-          Upload Meme
+          Upload Meme1
         </button> */}
         <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
           {images.map((image, index) => (
