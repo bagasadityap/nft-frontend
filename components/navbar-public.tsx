@@ -155,7 +155,7 @@ export default function Navbar({ className = "" }) {
                       })}
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-center gap-3 me-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  <div className="flex flex-row items-center justify-center gap-1 md:gap-3 me-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <a
                         href="https://x.com/phaserbeary_xrp?s=21"
                         className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
