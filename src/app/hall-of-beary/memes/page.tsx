@@ -44,7 +44,7 @@ export default function Memes() {
                     {`aBcd12efG345`.slice(0, 10)}...
                   </p>
                 </div> */}
-                <a href={image} className="flex flex-row gap-1 bg-black/20 hover:text-gray-300 hover:bg-black/30 py-1 px-2 rounded-lg">
+                <a download href={image} className="flex flex-row gap-1 bg-black/20 hover:text-gray-300 hover:bg-black/30 py-1 px-2 rounded-lg">
                   <Download></Download>
                   Download
                 </a>
