@@ -8,6 +8,7 @@ import React, {useCallback, useState, useEffect} from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from "next/navigation";
+import CookieConsent from './cookie-consent'
 
 const navigation = [
   { name: 'ABOUT', href: '#about' },
@@ -61,6 +62,7 @@ export default function Navbar({ className = "" }) {
     <Disclosure as="nav" className={`sm:py-2 lg:py-5 ${className}`}>
       {({ open }) => (
         <>
+          <CookieConsent/>
           <div className="font-gloria mx-auto max-w-screen px-6 sm:px-8 lg:px-10">
             <div className="relative flex items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">

@@ -77,7 +77,9 @@ export default function LandingPage() {
             ( click on the circle )
           </p>
         </section> */}
+        <section id="footer" style={{ position: "relative", zIndex: 3 }}>
           <Footer />
+        </section>
         </div>
       </div>
     </div>

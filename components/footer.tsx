@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaDiscord, FaTelegramPlane } from 'react-icons/fa'
-import CookieConsent from './cookie-consent';
+// import CookieConsent from './cookie-consent';
 import PrivacyPolicy from './privacy-policy';
 
 export default function Footer({color = ""}) {
   return (
     <footer>
-        <div className="font-gloria w-full max-w-screen-xl mx-auto p-4 z-50">
+        <div className="font-gloria w-full max-w-screen-xl mx-auto p-4">
             <div className="sm:flex sm:items-center justify-center md:justify-between">
                 <a className="hidden md:block flex items-center sm:mb-0">
                     <Image 
@@ -45,7 +45,6 @@ export default function Footer({color = ""}) {
                     </li>
                 </ul>
             </div>
-            <CookieConsent/>
             <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700" />
             <span className={`block text-sm md:text-md ${color} lg:text-lg sm:text-center`}>
                 &copy; {new Date().getFullYear()} Made with 🐻🪙 by $Phaser Beary.{' | '}
