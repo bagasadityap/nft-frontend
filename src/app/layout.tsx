@@ -1,6 +1,5 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
 import { Sora, Inter, Frijole, Comic_Neue, Caveat, Permanent_Marker, Gloria_Hallelujah, Andika } from "next/font/google";
 import "./globals.css";
 import MotionLayout from "./_motion-layout";
@@ -25,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable} ${frijole.variable} ${comicNeue.variable} ${caveat.variable} ${permanentMarker.variable} ${gloriaHallelujah.variable} ${andika.variable}`}>
       <body className="font-sora antialiased">
-        <Analytics />
         <MotionLayout>{children}</MotionLayout>
       </body>
     </html>
