@@ -47,7 +47,7 @@ export default function CookieConsent() {
   if (!isVisible) return null
 
   return (
-    <div className="fixed font-sora bottom-4 left-4 right-4 z-100 bg-white/90 p-4 rounded shadow-lg flex flex-col md:items-center justify-between gap-3 max-w-xl mx-auto border border-gray-300">
+    <div className="fixed z-100 font-sora bottom-4 left-4 right-4 z-100 bg-white/90 p-4 rounded shadow-lg flex flex-col md:items-center justify-between gap-3 max-w-xl mx-auto border border-gray-300">
       <button
         onClick={() => {
           if (typeof window !== "undefined") {
