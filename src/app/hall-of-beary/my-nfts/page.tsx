@@ -1,6 +1,7 @@
-import dynamic from 'next/dynamic';
-const NftCollections = dynamic(() => import('./nft-collections'), { ssr: false });
+'use client';
 
-export default async function MyNFTs() {
+import NftCollections from './nft-collections';
+
+export default function MyNFTs() {
   return <NftCollections />;
 }
