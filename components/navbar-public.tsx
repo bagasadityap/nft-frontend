@@ -155,7 +155,7 @@ export default function Navbar({ className = "" }) {
                       })}
                     </div>
                   </div>
-                  <div className="flex flex-row items-center justify-center gap-1 md:gap-3 me-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                  <div className="flex flex-row items-center justify-center gap-1 md:gap-3 me-2 md:me-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <a
                         href="https://x.com/phaserbeary_xrp?s=21"
                         className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
@@ -176,7 +176,7 @@ export default function Navbar({ className = "" }) {
                     </a>
                     <Link
                       href={href}
-                      className="font-gloria font-bold bg-black hover:bg-gray-700 text-white text-xl md:text-2xl ms-5 py-2 md:py-3 px-5 md-px-6 rounded-lg transition"
+                      className="font-gloria font-bold bg-black hover:bg-gray-700 text-white text-xl md:text-2xl ms-2 md:ms-5 py-2 md:py-3 px-5 md-px-6 rounded-lg transition"
                     >
                       {buttonName}
                     </Link>
