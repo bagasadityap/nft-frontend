@@ -1,9 +1,26 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { getMetaData } from "@/server/api/collections";
-import dynamic from "next/dynamic";
+import ClientCollections from "./client-collections";
 
-const ClientCollections = dynamic(() => import("./client-collections"), { ssr: false });
+type NFT = {
+  uri: string;
+  metadata: {
+    name: string;
+    description: string;
+    image: string;
+    attributes?: { trait_type: string; value: string }[];
+  };
+};
 
-export default async function CollectionsPage() {
-  const metadata = await getMetaData();
+export default function CollectionsPage() {
+  const [metadata, setMetadata] = useState<NFT[]>([]);
+
+
+  useEffect(() => {
+    getMetaData().then(setMetadata);
+  }, []);
+
   return <ClientCollections nfts={metadata} />;
 }
