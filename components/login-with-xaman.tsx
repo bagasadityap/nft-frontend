@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { useRouter } from "next/navigation"
@@ -36,6 +36,8 @@ export default function LoginWithXaman() {
       const res = await axios.post('/api/xumm/payload')
       setQr(res.data.qr)
       setUuid(res.data.uuid)
+
+      localStorage.setItem('xumm-uuid', res.data.uuid)
 
       if (isMobile() && res.data.next) {
         window.location.href = res.data.next
@@ -96,6 +98,15 @@ export default function LoginWithXaman() {
       }
     }, 3000)
   }
+
+  useEffect(() => {
+    if (!isMobile()) return
+    const storedUuid = localStorage.getItem('xumm-uuid')
+    if (storedUuid) {
+      poll(storedUuid)
+      localStorage.removeItem('xumm-uuid')
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-[#C4FF74] flex items-center justify-center px-4">

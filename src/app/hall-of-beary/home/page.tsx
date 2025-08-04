@@ -12,7 +12,6 @@ export default function HallOfBearyPage() {
     height: typeof window !== 'undefined' ? window.innerHeight : 0
   });
 
-  // Handle mouse/touch movement for parallax
   useEffect(() => {
     const handleMovement = (clientX: number, clientY: number) => {
       const container = containerRef.current;
@@ -22,7 +21,6 @@ export default function HallOfBearyPage() {
       const offsetX = (clientX / width - 0.5) * 2;
       const offsetY = (clientY / height - 0.5) * 2;
 
-      // Smaller movement on mobile
       const maxShift = windowSize.width < 768 ? 20 : 50;
       setPosition({
         x: -offsetX * maxShift,
@@ -45,7 +43,6 @@ export default function HallOfBearyPage() {
     };
   }, [windowSize.width]);
 
-  // Handle responsive sizing
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
@@ -72,7 +69,7 @@ export default function HallOfBearyPage() {
       <div className="absolute inset-0 overflow-hidden z-0">
         <video
           ref={videoRef}
-          src="/assets/beary/background.MOV"
+          src="/assets/beary/background.mp4"
           autoPlay
           loop
           muted
