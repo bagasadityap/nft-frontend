@@ -28,7 +28,10 @@ export default function LoginWithXaman() {
       setQr(res.data.qr)
       setUuid(res.data.uuid)
 
-      localStorage.setItem('xumm-uuid', res.data.uuid)
+      const consent = localStorage.getItem('cookie-consent')
+      if (consent === 'accepted') {
+        localStorage.setItem('xumm-uuid', res.data.uuid)
+      }
 
       if (isMobile() && res.data.next) {
         window.location.href = res.data.next
@@ -61,7 +64,13 @@ export default function LoginWithXaman() {
             withCredentials: true,
           })
 
-          localStorage.setItem('wallet_address', response.data.wallet_address)
+          const consent = localStorage.getItem('cookie-consent')
+          if (consent === 'accepted') {
+            localStorage.setItem('wallet_address', response.data.wallet_address)
+          } else {
+            sessionStorage.setItem('wallet_address', response.data.wallet_address)
+          }
+          
           setTimeout(() => {
             router.push('/hall-of-beary/home')
           }, 1000)
@@ -134,11 +143,3 @@ export default function LoginWithXaman() {
     </div>
   )
 }
-
-
-{/* <div className="font-gloria flex flex-col items-center justify-center gap-20 py-20">
-    <h1 className="text-black text-5xl md:text-9xl text-center">Not now. Beary’s still chasing honey in his sleep.</h1>
-    <Link href="/" className="font-andika text-white bg-green-600 p-3 text-xl font-bold hover:bg-green-700 rounded-lg">
-        Ok. I'll waitt..
-    </Link>
-</div> */}
