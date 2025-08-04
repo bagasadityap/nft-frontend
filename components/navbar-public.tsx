@@ -4,7 +4,7 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaDiscord, FaTelegramPlane } from 'react-icons/fa'
-import React, {useCallback} from 'react'
+import React, {useCallback, useState, useEffect} from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from "next/navigation";
@@ -14,6 +14,7 @@ const navigation = [
   { name: 'GENERATOR', href: '/meme-generator' },
   { name: '$PHASER COIN', href: '/$phaser-coin' },
   { name: 'COLLECTIONS', href: '/collections' },
+  { name: 'ART GALLERY', href: '/art-gallery' },
   { name: 'FAQ', href: '/faq' },
 ]
 
@@ -23,6 +24,7 @@ const navigationMobile = [
   { name: 'GENERATOR', href: '/meme-generator' },
   { name: '$PHASER COIN', href: '/$phaser-coin' },
   { name: 'COLLECTIONS', href: '/collections' },
+  { name: 'ART GALLERY', href: '/art-gallery' },
   { name: 'FAQ', href: '/faq' },
 ]
 
@@ -44,12 +46,23 @@ export default function Navbar({ className = "" }) {
     }
   }, [pathname, router]);
 
+  const [address, setAddress] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedAddress = localStorage.getItem('wallet_address');
+    setAddress(storedAddress);
+  }, []);
+
+  const href = address ? '/hall-of-beary/home' : '/owner-login';
+  const buttonName = address ? "Join" : "Connect";
+
+
   return (
     <Disclosure as="nav" className={`sm:py-2 lg:py-5 ${className}`}>
       {({ open }) => (
         <>
-          <div className="font-gloria mx-auto max-w-8xl px-6 sm:px-8 lg:px-10">
-            <div className="relative flex h-16 items-center justify-between">
+          <div className="font-gloria mx-auto max-w-screen px-6 sm:px-8 lg:px-10">
+            <div className="relative flex items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400">
                   <span className="sr-only">Open main menu</span>
@@ -93,7 +106,7 @@ export default function Navbar({ className = "" }) {
                 </div>
               </Disclosure.Panel>
 
-              <div className="flex flex-1 items-center justify-between sm:items-stretch">
+              <div className="flex flex-1 items-center justify-end md:justify-between sm:items-stretch py-3 md:py-0">
                 <div className="hidden sm:flex flex-shrink-0 items-center">
                   <Link href="/" className="block">
                     <Image
@@ -101,67 +114,74 @@ export default function Navbar({ className = "" }) {
                       alt="This is Beary"
                       width={240}
                       height={320}
-                      className="w-24 h-auto sm:w-32 md:w-40 lg:w-52 max-w-full"
+                      className="w-24 h-auto sm:w-32 md:w-40 lg:w-62 max-w-full"
                     />
                   </Link>
                 </div>
 
-                <div className="hidden sm:ml-6 sm:flex items-center">
-                  <div className="flex items-center">
-                    {navigation.map((item) => {
-                      const isActive = pathname.replace(/\/$/, '') === item.href.replace(/\/$/, '');
-                      const isAnchorLink = item.href.startsWith('#');
+                <div className="flex flex-col items-end justify-center">
+                  <div className="hidden sm:ml-6 sm:flex items-center">
+                    <div className="flex items-center">
+                      {navigation.map((item) => {
+                        const isActive = pathname.replace(/\/$/, '') === item.href.replace(/\/$/, '');
+                        const isAnchorLink = item.href.startsWith('#');
 
-                      return isAnchorLink ? (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          onClick={(e) => handleNavClick(e, item.href)}
-                          className={`block rounded-md px-3 py-4 font-bold text-center ${
-                            isActive
-                              ? "text-white"
-                              : "text-gray-300 hover:text-white"
-                          }`}
-                        >
-                          {item.name}
-                        </a>
-                      ) : (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className={`block rounded-md px-6 py-4 font-bold text-center ${
-                            isActive
-                              ? "text-white"
-                              : "text-gray-300 hover:text-white"
-                          }`}
-                        >
-                          {item.name}
-                        </Link>
-                      );
-                    })}
+                        return isAnchorLink ? (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            onClick={(e) => handleNavClick(e, item.href)}
+                            className={`block rounded-md px-3 py-4 font-bold text-center ${
+                              isActive
+                                ? "text-white"
+                                : "text-gray-300 hover:text-white"
+                            }`}
+                          >
+                            {item.name}
+                          </a>
+                        ) : (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className={`block rounded-md px-6 py-4 font-bold text-center ${
+                              isActive
+                                ? "text-white"
+                                : "text-gray-300 hover:text-white"
+                            }`}
+                          >
+                            {item.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="flex flex-row items-center justify-center gap-3 me-5 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <a
+                        href="https://x.com/phaserbeary_xrp?s=21"
+                        className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
+                        <span className="sr-only">X</span>
+                        <FaXTwitter className="h-9 w-9" aria-hidden="true" />
+                    </a>
+                    <a
+                      href="https://discord.gg/2GqcCEFPNu"
+                      className="ml-2 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
+                      <span className="sr-only">Join Discord</span>
+                      <FaDiscord className="h-10 w-10" />
+                    </a>
+                    <a
+                      href="https://t.me/phaserxrp"
+                      className="ml-2 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
+                      <span className="sr-only">Join Telegram</span>
+                      <FaTelegramPlane className="h-10 w-10" />
+                    </a>
+                    <Link
+                      href={href}
+                      className="font-gloria font-bold bg-black hover:bg-gray-700 text-white text-xl md:text-2xl ms-5 py-2 md:py-3 px-5 md-px-6 rounded-lg transition"
+                    >
+                      {buttonName}
+                    </Link>
                   </div>
                 </div>
-              </div>
-
-              <div className="flex flex-row items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <a
-                    href="https://x.com/phaserbeary_xrp?s=21"
-                    className="rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
-                    <span className="sr-only">X</span>
-                    <FaXTwitter className="h-9 w-9" aria-hidden="true" />
-                </a>
-                <a
-                  href="https://discord.gg/2GqcCEFPNu"
-                  className="ml-2 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
-                  <span className="sr-only">Join Discord</span>
-                  <FaDiscord className="h-10 w-10" />
-                </a>
-                <a
-                  href="https://t.me/phaserxrp"
-                  className="ml-2 rounded-full p-1 text-gray-300 hover:text-white focus:outline-none">
-                  <span className="sr-only">Join Telegram</span>
-                  <FaTelegramPlane className="h-10 w-10" />
-                </a>
               </div>
             </div>
           </div>

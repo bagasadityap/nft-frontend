@@ -40,7 +40,7 @@ export default function Main() {
                                 What is Phaser Beary?
                                 <span className="transition-transform group-open:rotate-90 font-bold text-5xl">{'>'}</span>
                             </summary>
-                            <hr className="my-4 border-t-3" />
+                            <hr className="my-4 border-t-3 border-gray-600" />
                             <div className="font-gloria text-gray-600 text-xl">
                                 I know you’re gonna ask — but seriously, figure it out yourself.
                             </div>

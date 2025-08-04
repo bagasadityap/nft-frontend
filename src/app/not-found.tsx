@@ -23,7 +23,7 @@ export default function NotFound() {
             <p className="font-gloria font-bold text-black hover:text-red-500 text-2xl mb-20">
                 OH NOOO...!!! You killed the Bear...
             </p>
-            <Link href="/" className="font-andika text-white bg-green-600 p-3 text-xl font-bold hover:bg-green-700 rounded-lg">
+            <Link href="/" className="font-gloria text-white bg-green-600 p-3 text-xl font-bold hover:bg-green-700 rounded-lg">
                 Bring Beary Back
             </Link>
         </div>

@@ -9,11 +9,11 @@ export default function Main() {
       <p className="font-gloria font-bold text-xl md:text-2xl text-white text-center mb-8 max-w-2xl">
         Join the rebellion against productivity. Own a bear who’s proud of doing nothing.
       </p>
-      <a href="https://xrp.cafe/collection/phaser-beary" className="font-andika font-bold bg-green-600 hover:bg-green-700 text-white text-2xl py-3 px-6 rounded-lg transition mb-5">
+      <a href="https://xrp.cafe/collection/phaser-beary" className="font-gloria font-bold bg-green-600 hover:bg-green-700 text-white text-2xl py-3 px-6 rounded-lg transition">
         Get Your Beary
       </a>
-      <a href="/owner-login" className="font-gloria underline font-semibold text-white hover:text-gray-200 text-xl hover:scale-105 py-3 px-6 rounded-lg transition">
-        For the laziest of them all {'>'}
+      <a href="/hidden-gems" className="underline mb-5 text-xs text-gray-500">
+        hidden gems
       </a>
     </main>
   );

@@ -20,7 +20,7 @@ export default function ClientCollections({ nfts }: { nfts: NFT[] }) {
 
   const filteredNfts = useMemo(() => {
     if (!searchId) return nfts;
-    const id = searchId.replace(/^#/, ""); // hilangkan '#' jika ada
+    const id = searchId.replace(/^#/, "");
     return nfts.filter((nft) => nft.metadata.name.includes(id));
   }, [nfts, searchId]);
 
