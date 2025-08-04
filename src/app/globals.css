@@ -54,7 +54,7 @@ body {
   cursor: url('/assets/beary/cursor (1).png'), auto;
 }
 
-a, button, input {
+a, button, input, select {
   cursor: url('/assets/beary/cursor (1).png'), auto !important;
 }
 

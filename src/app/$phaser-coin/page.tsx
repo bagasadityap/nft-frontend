@@ -27,7 +27,7 @@ export default function PhaserCoin() {
                     </Image>
                     <a
                         href="https://firstledger.net/token/rQLfUoZNafhTTJCoCt64isgCcmXdL5a5cp/5048415345520000000000000000000000000000"
-                        className="font-andika text-2xl font-bold bg-green-600 hover:bg-green-700 py-3 px-6 rounded-lg">
+                        className="font-gloria text-2xl font-bold bg-green-600 hover:bg-green-700 py-3 px-6 rounded-lg">
                         Buy Token
                     </a>
                 </div>

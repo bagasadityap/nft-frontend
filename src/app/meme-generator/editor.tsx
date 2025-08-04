@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import Draggable from "react-draggable";
-import Image from "next/image";
 import html2canvas from "html2canvas";
 import { Download } from "lucide-react";
 
