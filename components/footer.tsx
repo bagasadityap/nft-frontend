@@ -7,7 +7,7 @@ import PrivacyPolicy from './privacy-policy';
 export default function Footer({color = ""}) {
   return (
     <footer>
-        <div className="font-gloria w-full max-w-screen-xl mx-auto p-4">
+        <div className="font-gloria w-full max-w-screen-xl mx-auto p-4 z-50">
             <div className="sm:flex sm:items-center justify-center md:justify-between">
                 <a className="hidden md:block flex items-center sm:mb-0">
                     <Image 
