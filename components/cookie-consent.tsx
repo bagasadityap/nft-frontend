@@ -10,7 +10,8 @@ export default function CookieConsent() {
   useEffect(() => {
     const stored = localStorage.getItem('cookie-consent')
     setConsent(stored)
-    if (stored !== null) {
+    const isOnOwnerLogin = window.location.pathname === '/owner-login/'
+    if (stored !== null || !isOnOwnerLogin) {
       setIsVisible(false)
     }
   }, [])

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaDiscord, FaTelegramPlane } from 'react-icons/fa'
-// import CookieConsent from './cookie-consent';
+import CookieConsent from './cookie-consent';
 import PrivacyPolicy from './privacy-policy';
 
 export default function Footer({color = ""}) {
