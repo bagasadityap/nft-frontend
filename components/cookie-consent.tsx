@@ -13,12 +13,6 @@ export default function CookieConsent() {
     }
   }, [])
 
-  const handleAccept = () => {
-    localStorage.setItem('cookie-consent', 'true')
-    setShowConsent(false)
-    window.location.reload()
-  }
-
   if (!showConsent) return null
 
   return (
@@ -28,7 +22,10 @@ export default function CookieConsent() {
       </p>
       <div>
         <button
-          onClick={handleAccept}
+          onClick={() => {
+            localStorage.setItem('cookie-consent', 'true')
+            setShowConsent(false)
+          }}
           className="bg-green-600 hover:bg-green-700 text-white text-sm px-4 py-2 rounded"
         >
           Agree

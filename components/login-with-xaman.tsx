@@ -13,15 +13,6 @@ export default function LoginWithXaman() {
   const [wallet, setWallet] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  
-  const [hasConsent, setHasConsent] = useState(
-    typeof window !== 'undefined' && localStorage.getItem('cookie-consent') === 'true'
-  )
-  
-  const handleConsent = () => {
-    localStorage.setItem('cookie-consent', 'true')
-    setHasConsent(true)
-  }
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
@@ -121,7 +112,7 @@ export default function LoginWithXaman() {
 
         <button
           onClick={startLogin}
-          disabled={!hasConsent || isLoading}
+          disabled={isLoading}
           className="text-2xl font-bold bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition"
         >
           {isLoading ? 'Generating QR...' : 'Login with XAMAN'}
