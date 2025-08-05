@@ -1,7 +1,5 @@
 import { fetchNFTsByIssuer } from "@/server/xrpl/collections";
 
-
-
 function hexToString(hex: string): string {
   try {
     return Buffer.from(hex, "hex").toString("utf8");

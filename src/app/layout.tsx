@@ -1,8 +1,8 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Sora, Inter, Frijole, Comic_Neue, Caveat, Permanent_Marker, Gloria_Hallelujah, Andika } from "next/font/google";
 import "./globals.css";
 import MotionLayout from "./_motion-layout";
+import { Toaster } from 'react-hot-toast'
 
 const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400", "600", "700"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["400", "500", "700"] });
@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en" className={`${sora.variable} ${inter.variable} ${frijole.variable} ${comicNeue.variable} ${caveat.variable} ${permanentMarker.variable} ${gloriaHallelujah.variable} ${andika.variable}`}>
       <body className="font-sora antialiased">
         <MotionLayout>{children}</MotionLayout>
+        <Toaster position="top-center" />
       </body>
     </html>
   );
