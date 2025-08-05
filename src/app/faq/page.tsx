@@ -2,6 +2,8 @@
 
 import Navbar from "../../../components/navbar-public"
 import Footer from "../../../components/footer"
+import CookieConsent from "../../../components/cookie-consent";
+import PrivacyPolicy from "../../../components/privacy-policy";
 
 export default function FAQ() {
     return (
@@ -35,6 +37,23 @@ export default function FAQ() {
                             <div className="font-gloria text-gray-600 text-xl">
                                 I know you’re gonna ask — but seriously, figure it out yourself.
                             </div>
+                        </details>
+                        <details className="group border border-gray-700 border-3 rounded-lg p-4 select-none">
+                            <summary className="flex justify-between items-center cursor-pointer text-2xl font-bold">
+                                <button
+                                    onClick={() => {
+                                        window.dispatchEvent(new Event('show-cookie-consent'))
+                                    }}
+                                    className="hover:text-gray-700 hover:underline"
+                                    >
+                                    Cookie Notice
+                                </button>
+                            </summary>
+                        </details>
+                        <details className="group border border-gray-700 border-3 rounded-lg p-4 select-none">
+                            <summary className="flex justify-between items-center cursor-pointer text-2xl font-bold">
+                                <PrivacyPolicy className="inline p-0 m-0 text-2xl font-bold text-black hover:text-gray-700 hover:underline"/>
+                            </summary>
                         </details>
                     </div>
                 </div>

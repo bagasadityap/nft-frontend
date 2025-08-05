@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaDiscord, FaTelegramPlane } from 'react-icons/fa'
-import CookieConsent from './cookie-consent';
-import PrivacyPolicy from './privacy-policy';
 
 export default function Footer({color = ""}) {
   return (
@@ -47,16 +45,7 @@ export default function Footer({color = ""}) {
             </div>
             <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-700" />
             <span className={`block text-sm md:text-md ${color} lg:text-lg sm:text-center`}>
-                &copy; {new Date().getFullYear()} Made with 🐻🪙 by $Phaser Beary.{' | '}
-                <button
-                    onClick={() => {
-                        window.dispatchEvent(new Event('show-cookie-consent'))
-                    }}
-                    className="text-white hover:text-gray-300 hover:underline"
-                    >
-                    Cookie Settings
-                </button>{' | '}
-                <PrivacyPolicy size="text-sm md:text-md lg:text-lg" color="text-white" hover="text-gray-300"/>
+                &copy; {new Date().getFullYear()} Made with 🐻🪙 by $Phaser Beary.
             </span>
         </div>
     </footer>

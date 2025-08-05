@@ -13,10 +13,15 @@ export default function Sidebar({ bg = "" }) {
     const router = useRouter();
     const pathname = usePathname();
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         const confirmLogout = window.confirm("Are you sure you want to logout?");
         if (confirmLogout) {
             localStorage.removeItem('wallet_address');
+
+            await fetch('/api/logout', {
+                method: 'POST',
+            });
+
             router.push('/');
         }
     };

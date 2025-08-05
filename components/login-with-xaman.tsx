@@ -57,23 +57,16 @@ export default function LoginWithXaman() {
           setStatus('Login successful!')
           setWallet(response.data.wallet_address)
           setShowModal(false)
-          
+
           await axios.post('/api/login', {
             walletAddress: response.data.wallet_address,
           }, {
             withCredentials: true,
           })
 
-          const consent = localStorage.getItem('cookie-consent')
-          if (consent === 'accepted') {
-            localStorage.setItem('wallet_address', response.data.wallet_address)
-          } else {
-            sessionStorage.setItem('wallet_address', response.data.wallet_address)
-          }
+          localStorage.setItem('wallet_address', response.data.wallet_address)
           
-          setTimeout(() => {
-            router.push('/hall-of-beary/home')
-          }, 1000)
+          router.push('/hall-of-beary/home')
         } else if (response.data.status === 'cancelled') {
           clearInterval(interval)
           setStatus('Login was cancelled.')
@@ -96,11 +89,10 @@ export default function LoginWithXaman() {
           setStatus('An unexpected error occurred.')
         }
       }
-    }, 3000)
+    }, 1000)
   }
 
   if (typeof window !== 'undefined' && isMobile()) {
-    if (!isMobile()) return
     const storedUuid = localStorage.getItem('xumm-uuid')
     if (storedUuid) {
       poll(storedUuid)

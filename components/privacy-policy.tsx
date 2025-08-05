@@ -5,14 +5,14 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
-export default function PrivacyPolicy({size = "", color = "", hover = ""}) {
+export default function PrivacyPolicy({className = ""}) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
       <Button
         variant="link"
-        className={`inline p-0 m-0 ${size} ${color} hover:${hover}`}
+        className={`${className}`}
         onClick={() => setOpen(true)}
       >
         Privacy Policy

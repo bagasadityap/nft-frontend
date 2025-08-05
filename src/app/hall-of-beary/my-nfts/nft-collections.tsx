@@ -17,6 +17,7 @@ type NFT = {
 export default function NftCollections() {
   const [wallet, setWallet] = useState<string | null>(null)
   const [metadata, setMetadata] = useState<NFT[]>([])
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const address = localStorage.getItem('wallet_address')
@@ -24,6 +25,7 @@ export default function NftCollections() {
 
     if (address) {
       getMetaData(address).then(setMetadata)
+      .finally(() => setLoading(false))
     }
   }, [])
 
@@ -38,9 +40,18 @@ export default function NftCollections() {
                 <h1 className="text-7xl font-bold text-center">Your Beary’s Collections</h1>
             </div>
             {metadata.length === 0 ? (
-              <div className="text-center text-lg font-bold text-gray-600 py-10 animate-pulse">
-                Waitt a second, i&apos;ll wake your bear up...
-              </div>
+              loading ? (
+                <div className="text-center text-lg font-bold text-gray-600 py-10 animate-pulse">
+                  Waitt a second, i&apos;ll wake your bear up...
+                </div>
+              ) : (
+                <div className="flex flex-col gap-5 text-center text-xl font-bold text-gray-600 py-10">
+                  You don&apos;t have beary
+                  <a href="https://xrp.cafe/collection/phaser-beary" className="bg-white/70 hover:bg-white p-3 rounded-lg">
+                    Get Yours
+                  </a>
+                </div>
+              )
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {metadata.map((nft, index) => (

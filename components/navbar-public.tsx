@@ -55,7 +55,7 @@ export default function Navbar({ className = "" }) {
   }, []);
 
   const href = address ? '/hall-of-beary/home' : '/owner-login';
-  const buttonName = address ? "Join" : "Connect";
+  const buttonName = address ? "Enter >" : "Connect";
 
 
   return (

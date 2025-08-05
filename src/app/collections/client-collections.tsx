@@ -40,7 +40,7 @@ export default function ClientCollections({ nfts }: { nfts: NFT[] }) {
         <div className="col-span-2 row-span-9 flex items-center justify-center font-gloria font-bold text-5xl">
           Collecting Is Optional. Regret Is Forever.
         </div>
-        <a href="https://xrp.cafe/collection/phaser-beary" className="font-andika font-bold bg-green-600 hover:bg-green-700 text-white text-2xl py-3 px-6 rounded-lg transition mb-5">
+        <a href="https://xrp.cafe/collection/phaser-beary" className="font-gloria font-bold bg-green-600 hover:bg-green-700 text-white text-2xl py-3 px-6 rounded-lg transition mb-5">
           Mint
         </a>
       </div>

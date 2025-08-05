@@ -87,9 +87,7 @@ export default function HallOfBearyPage() {
 
       <div className="relative z-10 h-full flex flex-col md:flex-row">
         <Sidebar bg="bg-white/50" />
-        <div className="w-full flex justify-center"
-          style={{ backgroundImage: "url('assets/beary/bg-home.PNG')" }}
-        >
+        <div className="w-full flex justify-center">
           <h1
             className="max-w-4xl font-gloria text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-center text-[#FFEC4A] px-4 pt-20"
             style={{
